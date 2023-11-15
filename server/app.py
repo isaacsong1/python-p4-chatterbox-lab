@@ -18,7 +18,7 @@ db.init_app(app)
 def messages():
     if request.method == "GET":
         body = [message.to_dict() for message in Message.query.all()]
-        return body, 200
+        return jsonify(body), 200
     else:
         try:
             data = request.get_json()
